@@ -86,4 +86,14 @@ describe("Relation should", () => {
     expect(relation.isAntisexy).toBe(true);
     expect(relation.familiarity).toBe(Familiar.Cousin);
   });
+
+  it("copy a relation", () => {
+    let relation = new Relation(10, 20, 30, Familiar.Parent);
+    let copy = relation.copy();
+
+    expect(copy.metrics.friendship).toBe(10);
+    expect(copy.metrics.love).toBe(20);
+    expect(copy.metrics.sex).toBe(30);
+    expect(copy.familiarity).toBe(Familiar.Parent);
+  });
 });

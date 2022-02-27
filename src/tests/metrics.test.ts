@@ -63,4 +63,13 @@ describe("Metrics should", () => {
     expect(metrics.love).toBe(45);
     expect(metrics.sex).toBe(45);
   });
+
+  it("copy metrics", () => {
+    let metrics = new RelationMetrics(10, 20, 30);
+    let copy = metrics.copy();
+    
+    expect(copy.friendship).toBe(10);
+    expect(copy.love).toBe(20);
+    expect(copy.sex).toBe(30);
+  });
 });
