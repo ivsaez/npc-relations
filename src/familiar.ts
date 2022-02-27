@@ -23,7 +23,7 @@ export class FamiliarDomain{
             case Familiar.SonOrDaughter:
                 return Familiar.Parent;
 
-            case Familiar.NephewOrNiece:
+            case Familiar.Grandchild:
                 return Familiar.Grandparent;
 
             case Familiar.Parent:
