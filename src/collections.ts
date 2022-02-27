@@ -1,4 +1,4 @@
-import { Relation, RelationFactory, RelationKind } from ".";
+import { Relation, RelationFactory, RelationKind } from "./relations";
 
 export class RelationSet{
     private _relations: Map<string, Relation>;

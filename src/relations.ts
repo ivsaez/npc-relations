@@ -1,4 +1,5 @@
-import { Familiar, RelationMetrics } from ".";
+import { Familiar } from "./familiar";
+import { RelationMetrics } from "./metrics";
 
 export enum RelationKind{
     Neutral,
