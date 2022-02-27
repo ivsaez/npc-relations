@@ -56,5 +56,8 @@
     "dist",
     "package.json",
     "README.md"
-  ]
+  ],
+  "dependencies": {
+    "limited-int": "^1.0.3"
+  }
 }
