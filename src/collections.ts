@@ -16,7 +16,7 @@ export class RelationSet{
         return this;
     }
 
-    knowns(): Set<string>{
+    get knowns(): Set<string>{
         return new Set<string>(Object.keys(this._relations));
     }
 

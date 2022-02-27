@@ -49,62 +49,62 @@ export class Relation{
         return this._familiar;
     }
 
-    ponderatedValue(): number{
+    get ponderatedValue(): number{
         return (this.metrics.friendship + this.metrics.love + this.metrics.sex) / 3;
     }
 
-    isPonderatedGood(): boolean{
-        return this.ponderatedValue() > PonderateGoodLimit;
+    get isPonderatedGood(): boolean{
+        return this.ponderatedValue > PonderateGoodLimit;
     }
 
-    isPonderatedBad(): boolean{
-        return this.ponderatedValue() < PonderateBadLimit;
+    get isPonderatedBad(): boolean{
+        return this.ponderatedValue < PonderateBadLimit;
     }
 
-    isPonderatedNeutral(): boolean{
-        let ponderation = this.ponderatedValue();
+    get isPonderatedNeutral(): boolean{
+        let ponderation = this.ponderatedValue;
         return ponderation >= PonderateBadLimit && ponderation <= PonderateGoodLimit;
     }
 
-    isFamiliar(): boolean{
+    get isFamiliar(): boolean{
         return this._familiar !== Familiar.None;
     }
 
-    isFriend(): boolean{
+    get isFriend(): boolean{
         return this._metrics.friendship > PositiveLimit;
     }
 
-    isLover(): boolean{
+    get isLover(): boolean{
         return this._metrics.love > PositiveLimit;
     }
 
-    isSexy(): boolean{
+    get isSexy(): boolean{
         return this._metrics.sex > PositiveLimit;
     }
 
-    isEnemy(): boolean{
+    get isEnemy(): boolean{
         return this._metrics.friendship < NegativeLimit;
     }
 
-    isExlover(): boolean{
+    get isExlover(): boolean{
         return this._metrics.love < NegativeLimit;
     }
 
-    isAntisexy(): boolean{
+    get isAntisexy(): boolean{
         return this._metrics.sex < NegativeLimit;
     }
 
     normalize(){
-        if(!this.isPure()) return;
+        if(!this.isPure) return;
 
-        if (this._metrics.friendship > this._purity.friendship) this._metrics.increaseFriendship();
-        else this._metrics.decreaseFriendship();
+        if (this._metrics.friendship > this._purity.friendship) this._metrics.decreaseFriendship();
+        else this._metrics.increaseFriendship();
 
-        if (this._metrics.love > this._purity.love) this._metrics.increaseLove();
-        else this._metrics.decreaseLove();
+        if (this._metrics.love > this._purity.love) this._metrics.decreaseLove();
+        else this._metrics.increaseLove();
 
-        if (this._metrics.sex > this._purity.sex) this._metrics.increaseSex();
-        else this._metrics.decreaseSex();
+        if (this._metrics.sex > this._purity.sex) this._metrics.decreaseSex();
+        else this._metrics.increaseSex();
     }
 
     copy(): Relation{
@@ -113,11 +113,11 @@ export class Relation{
             this._metrics.love,
             this._metrics.sex,
             this._familiar,
-            this.isPure()
+            this.isPure
         );
     }
 
-    private isPure(): boolean{
+    private get isPure(): boolean{
         return this._purity !== undefined;
     }
 }
