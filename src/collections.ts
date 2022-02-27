@@ -17,15 +17,15 @@ export class RelationSet{
     }
 
     get knowns(): Set<string>{
-        return new Set<string>(Object.keys(this._relations));
+        return new Set<string>(this._relations.keys());
     }
 
-    knows(npcName: string){
+    knows(npcName: string): boolean{
         return this._relations.has(npcName);
     }
 
-    get(npcName: string){
-        if (this._relations.has(npcName)) return this._relations[npcName];
+    get(npcName: string): Relation{
+        if (this._relations.has(npcName)) return this._relations.get(npcName);
 
         var newRelation = RelationFactory.get(RelationKind.Neutral);
         this._relations.set(npcName, newRelation);
@@ -38,7 +38,9 @@ export class RelationSet{
 
     copy(): RelationSet{
         let copy = new RelationSet();
-        Object.keys(this._relations).forEach(name => copy.add(name, this._relations[name]));
+        for(let key of this._relations.keys()){
+            copy.add(key, this._relations.get(key));
+        }
         return copy;
     }
 }
