@@ -51,18 +51,15 @@ export class RelationMetrics{
     }
 
     increaseFriendshipPercentage(percentage: number): void{
-        let increment = this.calculatePercentage(this._friendship.value, percentage);
-        this._friendship.increase(increment);
+        this._friendship.increasePercentage(percentage);
     }
 
     increaseLovePercentage(percentage: number): void{
-        let increment = this.calculatePercentage(this._love.value, percentage);
-        this._love.increase(increment);
+        this._love.increasePercentage(percentage);
     }
 
     increaseSexPercentage(percentage: number): void{
-        let increment = this.calculatePercentage(this._sex.value, percentage);
-        this._sex.increase(increment);
+        this._sex.increasePercentage(percentage);
     }
 
     decreaseFriendship(value: number = 1): void{
@@ -78,18 +75,15 @@ export class RelationMetrics{
     }
 
     decreaseFriendshipPercentage(percentage: number): void{
-        let increment = this.calculatePercentage(this._friendship.value, percentage);
-        this._friendship.decrease(increment);
+        this._friendship.decreasePercentage(percentage);
     }
 
     decreaseLovePercentage(percentage: number): void{
-        let increment = this.calculatePercentage(this._love.value, percentage);
-        this._love.decrease(increment);
+        this._love.decreasePercentage(percentage);
     }
 
     decreaseSexPercentage(percentage: number): void{
-        let increment = this.calculatePercentage(this._sex.value, percentage);
-        this._sex.decrease(increment);
+        this._sex.decreasePercentage(percentage);
     }
 
     copy(): RelationMetrics{
