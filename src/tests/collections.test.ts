@@ -34,9 +34,9 @@ describe("Relation set should", () => {
 
     let knownNPCs = set.knowns;
 
-    expect(knownNPCs.size).toBe(2);
-    expect(knownNPCs.has("npc1")).toBe(true);
-    expect(knownNPCs.has("npc2")).toBe(true);
+    expect(knownNPCs.length).toBe(2);
+    expect(knownNPCs.includes("npc1")).toBe(true);
+    expect(knownNPCs.includes("npc2")).toBe(true);
   });
 
   it("normalize all relations", () => {

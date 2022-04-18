@@ -16,8 +16,8 @@ export class RelationSet{
         return this;
     }
 
-    get knowns(): Set<string>{
-        return new Set<string>(this._relations.keys());
+    get knowns(): string[]{
+        return [...this._relations.keys()];
     }
 
     knows(npcName: string): boolean{
